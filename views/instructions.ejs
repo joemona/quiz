@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Instructions - <%= subject %></title>
+</head>
+<body>
+  <h1>Instructions - <%= subject %></h1>
+  <p>Please read the following instructions carefully:</p>
+  <!-- Add any specific instructions you want to provide for the quiz -->
+  <ul>
+    <li>...</li>
+    <li>...</li>
+    <!-- Add more instructions as needed -->
+  </ul>
+  <a href="/quiz?subject=<%= selectedSubject %>">Start Quiz</a> <!-- Update subjectId to selectedSubject -->
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>NouQuizz - Instructions</title>
+</head>
+<body>
+  <h1>Instructions for <%= subject %></h1>
+  <p>Welcome to the <%= subject %> quiz!</p>
+  <p>Read the instructions carefully before starting the quiz:</p>
+  <ol>
+    <li>You will be presented with a series of multiple-choice questions.</li>
+    <li>Select the correct answer for each question.</li>
+    <li>You cannot go back to previous questions once answered.</li>
+    <li>Once you start the quiz, the timer will begin.</li>
+    <li>Ensure you submit your answers before the time runs out.</li>
+  </ol>
+  <form action="/quiz?subject=<%= selectedSubject %>" method="POST">
+    <input type="submit" value="Start Quiz">
+  </form>
+</body>
+</html> -->

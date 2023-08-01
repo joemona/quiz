@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz</title>
+</head>
+<body>
+  <!-- quiz.ejs -->
+
+  <h1>Quiz Page</h1>
+
+  <p>Subject: <%= subject %></p>
+
+  <form action="/quiz/results?subject=<%= subjectId %>" method="post">
+    <% if (questions && Array.isArray(questions)) { %>
+      <% questions.forEach((question) => { %>
+        <h3>Question <%= question.id %>:</h3>
+        <p><%= question.question %></p>
+
+        <% question.options.forEach((option, index) => { %>
+          <input type="radio" id="option<%= index %>" name="question_<%= question.id %>" value="<%= option %>"
+            <%= selectedOptions[`question_${question.id}`] === option ? 'checked' : '' %>
+          >
+          <label for="option<%= index %>"><%= option %></label><br>
+        <% }) %>
+
+        <!-- Hidden input field to store the selected option for this question -->
+        <input type="hidden" name="selectedOptions[<%= question.id %>]" value="<%= selectedOptions[`question_${question.id}`] %>">
+      <% }) %>
+    <% } else { %>
+      <p>No questions available.</p>
+    <% } %>
+
+    <% if (currentPage > 1) { %>
+      <a href="/quiz?subject=<%= subjectId %>&page=1">First</a>
+      <a href="/quiz?subject=<%= subjectId %>&page=<%= currentPage - 1 %>">Previous</a>
+    <% } %>
+
+    <% if (currentPage < totalPages) { %>
+      <a href="/quiz?subject=<%= subjectId %>&page=<%= currentPage + 1 %>">Next</a>
+      <a href="/quiz?subject=<%= subjectId %>&page=<%= totalPages %>">Last</a>
+    <% } %>
+
+    <button type="submit">Submit Quiz</button>
+  </form>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz Results</title>
+</head>
+<body>
+  <h1>Quiz Results</h1>
+
+  <p>Subject: <%= subject %></p>
+  <p>Total Questions: <%= totalQuestions %></p>
+  <p>Score: <%= score %> / <%= totalQuestions %></p>
+  <p>Time Taken: <%= timeTaken %> seconds</p>
+
+  <h2>Attempted Questions:</h2>
+  <% attemptedQuestions.forEach((question) => { %>
+    <h3>Question <%= question.id %>:</h3>
+    <p><strong>Question:</strong> <%= question.question %></p>
+    <p><strong>Your Answer:</strong> <%= userAnswers[`question_${question.id}`] %></p>
+    <p><strong>Correct Answer:</strong> <%= question.correct_answer %></p>
+  <% }) %>
+
+  <h2>Unattempted Questions:</h2>
+  <% unattemptedQuestions.forEach((question) => { %>
+    <h3>Question <%= question.id %>:</h3>
+    <p><strong>Question:</strong> <%= question.question %></p>
+    <p><strong>Correct Answer:</strong> <%= question.correct_answer %></p>
+  <% }) %>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>NouQuizz - Select Subject</title>
+</head>
+<body>
+  <h1>Select a Subject to Start the Quiz</h1>
+  <ul>
+    <% subjects.forEach((subject) => { %>
+      <li>
+        <a href="/instructions?subject=<%= subject.id %>"><%= subject.name %></a>
+      </li>
+    <% }) %>
+  </ul>
+</body>
+</html>
